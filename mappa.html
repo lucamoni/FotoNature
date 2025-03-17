@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="it">
+<head>
+    <title>Mappa Interattiva</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+</head>
+<body>
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <div class="inner">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb-container">
+                <ol class="breadcrumb">
+                    <span>sei nella pagina:</span>
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Home</a>
+                    <li class="breadcrumb-item active">
+                        <a href="mappa.html">Mappa Interattiva</a>
+                    </li>
+                </ol>
+            </div>
+            <div class="logo"><span class="icon fa-gem"></span></div>
+        </div>
+        <h1><a href="index.html">Torna alla Home</a></h1>
+
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+</div>
+
+    <!-- Menu -->
+    <nav id="menu">
+        <div class="inner">
+            <h2>Menu</h2>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="foto.html">Foto</a></li>
+                <li><a href="artista.html">Fotografi</a></li>
+                <li><a href="mappa.html">Mappa</a></li>
+            </ul>
+            <a href="#" class="close">Close</a>
+        </div>
+    </nav>
+
+
+    <section id="banner">
+        <div class="inner">
+            <h2 align="center">MAPPA INTERATTIVA</h2>
+        </div>
+    </section>
+
+    <!-- Map and Sidebar Section -->
+    <section id="map-section" class="wrapper spotlight style1">
+        <div class="inner">
+            <div id="map"></div>
+            <div id="sidebar">
+                <input type="text" id="search-input" placeholder="Cerca in base alla foto..." />
+                <ul id="photo-list"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="inner">
+            <ul class="contact">
+                <li class="icon solid fa-home">
+                    Untitled Inc<br />
+                    1234 Somewhere Road Suite #2894<br />
+                    Nashville, TN 00000-0000
+                </li>
+                <li class="icon solid fa-phone">(000) 000-0000</li>
+                <li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+                <li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
+                <li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
+                <li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialize the map
+    const map = L.map('map').setView([30, 0], 1.5); // Centered on the world with a zoom level of 2
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Fetch the dataset and add markers to the map and items to the sidebar
+    fetch('dataset.json')
+        .then(response => response.json())
+        .then(data => {
+            const sidebar = document.getElementById('photo-list');
+            const searchInput = document.getElementById('search-input');
+
+            const displayPhotos = (photos) => {
+                sidebar.innerHTML = '';
+                photos.forEach(item => {
+                    if (item.luogo) {
+                        // Add marker to the map
+                        const marker = L.marker([item.luogo.lat, item.luogo.lng]).addTo(map);
+                        marker.bindPopup(`<a href="foto_specifica.html?id=${item.id}" class="popup-link">${item.title}</a>`);
+
+                        // Add item to the sidebar
+                        const photoItem = document.createElement('li');
+                        photoItem.className = 'photo-item';
+                        photoItem.innerHTML = `<img src="${item.image}" alt="${item.title}"><h3>${item.title}</h3>`;
+                        photoItem.addEventListener('click', () => {
+                            map.setView([item.luogo.lat, item.luogo.lng], 10);
+                            marker.openPopup();
+                        });
+                        sidebar.appendChild(photoItem);
+                    }
+                });
+            };
+
+            // Initial display of all photos
+            displayPhotos(data);
+
+            // Filter photos based on search input
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredPhotos = data.filter(item => item.title.toLowerCase().includes(searchTerm));
+                displayPhotos(filteredPhotos);
+            });
+        })
+        .catch(error => console.error('Error loading dataset:', error));
+</script>
+</body>
+</html>

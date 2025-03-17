@@ -1,12 +1,8 @@
 <!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+
+<html lang="it">
 	<head>
-		<title>Solid State by HTML5 UP</title>
+		<title>Progetto Informatica Umanistica</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +15,18 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">Solid State</a></h1>
+						<h1><a href="index.html">FOTONATURE</a></h1>
+
+						<!-- Breadcrumb -->
+						<div class="breadcrumb-container">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item active">
+									<span>sei nella pagina:</span>
+									<a href="index.html">Home</a>
+								</li>
+							</ol>
+						</div>
+
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -30,11 +37,10 @@
 						<div class="inner">
 							<h2>Menu</h2>
 							<ul class="links">
-								<li><a href="index.html">Casa</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="elements.html">Elements</a></li>
-								<li><a href="#">Log In</a></li>
-								<li><a href="#">Sign Up</a></li>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="foto.html">Foto</a></li>
+								<li><a href="artista.html">Fotografi</a></li>
+								<li><a href="mappa.html">Mappa</a></li>
 							</ul>
 							<a href="#" class="close">Close</a>
 						</div>
@@ -43,23 +49,114 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
+
 							<div class="logo"><span class="icon fa-gem"></span></div>
-							<h2>This is Solid State</h2>
-							<p>PROVA SITO GALLERIA FOTO NATURA <a href="http://html5up.net">HTML5 UP</a></p>
+							<h2>fotonature</h2>
+							<p>PROVA SITO GALLERIA FOTO NATURA </p>
+
+
 						</div>
+
+
 					</section>
+			</div>
+
+				<!-- Search Button -->
+				<button id="search-button" class="button">Cerca</button>
+
+				<!-- Search Modal -->
+				<div id="search-modal" class="modal">
+					<div class="modal-content">
+						<span id="close-search-modal" class="close">&times;</span>
+						<h2 class="major">Cerca Foto o Fotografi</h2>
+						<label for="search-input"></label><input type="text" id="search-input" placeholder="Cerca per titolo foto o nome fotografo..." oninput="searchDataset()">
+						<div id="search-results" class="box" style="margin-top: 20px;"></div>
+					</div>
+				</div>
+
+				<script>
+					// Get the close button element for the search modal
+					const closeSearchModalButton = document.getElementById('close-search-modal');
+
+					// Close the search modal when the close button is clicked
+					closeSearchModalButton.onclick = function() {
+						const searchModal = document.getElementById('search-modal');
+						searchModal.style.display = 'none';
+					}
+
+
+
+					// Get modal elements
+					const modal = document.getElementById('search-modal');
+					const btn = document.getElementById('search-button');
+					const span = document.getElementsByClassName('close')[0];
+
+					// Open the modal
+					btn.onclick = function() {
+						modal.style.display = 'block';
+					}
+
+					// Close the modal
+					span.onclick = function() {
+						modal.style.display = 'none';
+					}
+
+					// Close the modal when clicking outside of it
+					window.onclick = function(event) {
+						if (event.target === modal) {
+							modal.style.display = 'none';
+						}
+					}
+
+					function searchDataset() {
+						const query = document.getElementById('search-input').value.toLowerCase();
+						const resultsBox = document.getElementById('search-results');
+						resultsBox.innerHTML = '';
+
+						fetch('dataset.json')
+								.then(response => response.json())
+								.then(data => {
+									const results = data.filter(item =>
+											item.title.toLowerCase().includes(query) ||
+											item.artista.toLowerCase().includes(query)
+									);
+
+									if (results.length > 0) {
+										results.forEach(item => {
+											const resultItem = document.createElement('div');
+											resultItem.className = 'result-item';
+											resultItem.innerHTML = `
+              <h3>${item.title}</h3>
+              <p>Fotografo: ${item.artista}</p>
+              <a href="foto_specifica.html?id=${item.id}" class="button">Vedi Foto</a>
+              <a href="artista_specifico.html?id=${item.id}" class="button">Vedi Fotografo</a>
+            `;
+											resultsBox.appendChild(resultItem);
+										});
+									} else {
+										resultsBox.innerHTML = '<p>Nessun risultato trovato.</p>';
+									}
+								})
+								.catch(error => console.error('Errore durante il caricamento del dataset:', error));
+					}
+
+
+				</script>
+
+
+
 
 				<!-- Wrapper -->
 					<section id="wrapper">
 
-						<!-- One -->
+						<!-- catalogo foto -->
 							<section id="one" class="wrapper spotlight style1">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+									<a class="image-foto"><img src="images/foto1.jpg" alt="" /></a>
 									<div class="content">
-										<h2 class="major">Magna arcu feugiat</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
+										<h2 class="major">SFOGLIA IL CATALOGO DELLE FOTO</h2>
+										<p>Scopri tutte le foto del concorso</p>
+										<a href="foto.html" class="button special">Vai al catalogo</a>
 									</div>
 								</div>
 							</section>
@@ -67,28 +164,30 @@
 						<!-- Two -->
 							<section id="two" class="wrapper alt spotlight style2">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+									<a class="image"><img src="images/foto_artista1.jpeg" alt="" /></a>
 									<div class="content">
-										<h2 class="major">Tempus adipiscing</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
+										<h2 class="major">SFOGLIA LA LISTA DEGLI ARTISTI</h2>
+										<p>Scopri tutti i fotogratfi del concorso</p>
+										<a href="artista.html" class="button special">Vai alla lista completa</a>
 									</div>
 								</div>
 							</section>
+					</section>
 
-						<!-- Three -->
-							<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Nullam dignissim</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
+						<!--	Three
+                                <section id="three" class="wrapper spotlight style3">
+                                    <div class="inner">
+                                        <a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+                                        <div class="content">
+                                            <h2 class="major">Nullam dignissim</h2>
+                                            <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+                                            <a href="#" class="special">Learn more</a>
+                                        </div>
+                                    </div>
+                                </section>
+                         -->
 
-						<!-- Four -->
+						<!-- Four
 							<section id="four" class="wrapper alt style1">
 								<div class="inner">
 									<h2 class="major">Vitae phasellus</h2>
@@ -120,13 +219,13 @@
 										</article>
 									</section>
 									<ul class="actions">
-										<li><a href="#" class="button">Browse All</a></li>
+										<li><a href="foto.html" class="button">Tutto</a></li>
 									</ul>
 								</div>
 							</section>
 
 					</section>
-
+ 				-->
 				<!-- Footer -->
 					<section id="footer">
 						<div class="inner">
@@ -169,7 +268,7 @@
 						</div>
 					</section>
 
-			</div>
+
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

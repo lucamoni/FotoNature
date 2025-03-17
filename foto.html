@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+
+<html lang="it">
+	<head>
+		<title>Pagina Foto</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+	<body>
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<div class="inner">
+							<!-- Breadcrumb -->
+							<div class="breadcrumb-container">
+								<ol class="breadcrumb">
+									<span>sei nella pagina:</span>
+									<li class="breadcrumb-item">
+										<a href="index.html">Home</a>
+									<li class="breadcrumb-item active">
+										<a href="foto.html">Catalogo Foto</a>
+									</li>
+								</ol>
+							</div>
+
+
+
+							<div class="logo"><span class="icon fa-gem"></span></div>
+						</div>
+						<h1><a href="index.html">Torna alla Home</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+			</div>
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="foto.html">Foto</a></li>
+								<li><a href="artista.html">Fotografi</a></li>
+								<li><a href="mappa.html">Mappa</a></li>
+							<a href="#" class="close">Close</a>
+							</ul>
+						</div>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2 align="center">FOTO</h2>
+						</div>
+					</section>
+
+
+
+
+
+				<!-- Script per caricare il dataset
+				<script>
+					fetch('dataset.json')
+							.then(response => response.json())
+							.then(data => {
+								const wrapper = document.querySelector('.features');
+
+								data.forEach((item) => {
+									// Creazione di ogni riquadro "article"
+									const article = document.createElement('article');
+									article.innerHTML = `
+					<a href="foto_specifica.html?id=${item.id}" class="image"><img src="${item.image}" alt="${item.title}" /></a>
+					<div class="card-body">
+						<h5 class="card-title">${item.title}</h5>
+						<p class="card-text">${item.description}</p>
+						<a class="card-text" href="foto_specifica.html?id=${item.id}"/>Scopri di più</a>
+					</div>
+			`;
+
+									// Aggiunta del riquadro al wrapper
+									wrapper.appendChild(article);
+								});
+							})
+							.catch(error => console.error('Errore durante il caricamento del dataset:', error));
+				</script>
+ -->
+
+		<script>
+			// Fetch the dataset and initialize pagination
+			fetch('dataset.json')
+					.then(response => response.json())
+					.then(data => {
+						const itemsPerPage = 4;
+						let currentPage = 1;
+
+						function renderPage(page) {
+							const wrapper = document.querySelector('.features');
+							wrapper.innerHTML = '';
+							const start = (page - 1) * itemsPerPage;
+							const end = start + itemsPerPage;
+							const pageItems = data.slice(start, end);
+
+							pageItems.forEach(item => {
+								const article = document.createElement('article');
+								article.innerHTML = `
+          <a href="foto_specifica.html?id=${item.id}" class="image"><img src="${item.image}" alt="${item.title}" /></a>
+          <div class="card-body">
+            <h5 class="card-title">${item.title}</h5>
+            <p class="card-text">${item.description}</p>
+            <a class="card-text" href="foto_specifica.html?id=${item.id}"/>Scopri di più</a>
+          </div>
+        `;
+								wrapper.appendChild(article);
+							});
+
+							renderPagination();
+						}
+
+						function renderPagination() {
+							const pagination = document.getElementById('pagination');
+							pagination.innerHTML = '';
+							const totalPages = Math.ceil(data.length / itemsPerPage);
+
+							for (let i = 1; i <= totalPages; i++) {
+								const pageLink = document.createElement('a');
+								pageLink.href = '#';
+								pageLink.innerText = i;
+								pageLink.className = 'page-link';
+								if (i === currentPage) {
+									pageLink.classList.add('active');
+								}
+								pageLink.addEventListener('click', (e) => {
+									e.preventDefault();
+									currentPage = i;
+									renderPage(currentPage);
+								});
+								pagination.appendChild(pageLink);
+							}
+						}
+
+						renderPage(currentPage);
+					})
+					.catch(error => console.error('Errore durante il caricamento del dataset:', error));
+		</script>
+
+
+		<section id="four" class="wrapper alt style1">
+			<div class="inner">
+				<section class="features">
+				</section>
+				<div id="pagination" class="pagination"></div>
+			</div>
+		</section>
+
+
+
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									Untitled Inc<br />
+									1234 Somewhere Road Suite #2894<br />
+									Nashville, TN 00000-0000
+								</li>
+								<li class="icon solid fa-phone">(000) 000-0000</li>
+								<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+								<li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
+								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
+								<li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

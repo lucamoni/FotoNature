@@ -101,9 +101,12 @@ input, select, textarea {
 	body {
 		background-color: #2e3141;
 		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-		background-size: auto, cover;
-		background-attachment: fixed, fixed;
-		background-position: center, center;
+		background-size: auto,
+ cover;
+		background-attachment: fixed,
+ fixed;
+		background-position: center,
+ center;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -273,6 +276,9 @@ input, select, textarea {
 
 	h2 {
 		font-size: 1.2em;
+	}
+	#titolo_foto_personale1 {
+	border-bottom: none;
 	}
 
 	h3 {
@@ -2413,12 +2419,37 @@ input, select, textarea {
 		border: 0;
 		display: inline-block;
 		position: relative;
+		overflow: hidden;
 	}
 
 		.image img {
-			border-radius: 5px;
+			border-radius:5px;
 			display: block;
+
 		}
+
+
+
+.image-foto {
+	border-radius: 50%;
+	border: 0;
+	display: inline-block;
+	position: relative;
+	width: 400px; /* Set a fixed width */
+	height: 265px; /* Set a fixed height */
+	margin-left: 4em;
+	overflow: hidden; /* Ensure the image does not overflow the circle */
+}
+
+.image-foto img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;/* Ensure the image covers the entire circle */
+}
 
 		.image.left, .image.right {
 			max-width: 40%;
@@ -2998,6 +3029,7 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		margin: 0 0 2em 0;
+
 	}
 
 		.features article {
@@ -3082,6 +3114,8 @@ input, select, textarea {
 		top: 0;
 		width: 100%;
 		z-index: 10000;
+
+
 	}
 
 		#header h1 {
@@ -3464,8 +3498,10 @@ input, select, textarea {
 				padding: 7em 0 8.25em 0 ;
 				background-color: #2e3141;
 				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-				background-size: auto, cover;
-				background-position: center, center;
+				background-size: auto,
+ cover;
+				background-position: center,
+ center;
 				margin-bottom: -6.5em;
 			}
 
@@ -3574,8 +3610,10 @@ input, select, textarea {
 			padding: 9em 0 6.25em 0 ;
 			background-color: #2e3141;
 			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-			background-size: auto, cover;
-			background-position: center, 0% 30%;
+			background-size: auto,
+ cover;
+			background-position: center,
+ 0% 30%;
 			margin-bottom: -6.5em;
 		}
 
@@ -3585,8 +3623,10 @@ input, select, textarea {
 
 		#wrapper > header {
 			padding: 11em 3em 7.375em 3em ;
-			background-size: auto, cover;
-			background-position: center, 0% 0%;
+			background-size: auto,
+ cover;
+			background-position: center,
+ 0% 0%;
 			margin-bottom: -4.75em;
 		}
 
@@ -3600,7 +3640,8 @@ input, select, textarea {
 
 		#wrapper > header {
 			padding: 6.5em 2em 3em 2em ;
-			background-size: auto, 125%;
+			background-size: auto,
+ 125%;
 			margin-bottom: -2.5em;
 		}
 
@@ -4062,8 +4103,10 @@ input, select, textarea {
 		#footer {
 			background-color: #2e3141;
 			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-			background-size: auto, cover;
-			background-position: center, center;
+			background-size: auto,
+ cover;
+			background-position: center,
+ center;
 			margin-top: -6.5em;
 			padding-top: 6.5em;
 		}
@@ -4142,3 +4185,302 @@ input, select, textarea {
 		}
 
 	}
+
+.image.dynamic img {
+	width: 100%;
+	height: auto;
+}
+
+#foto-description {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#descrizione_artista {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+/* Modal styles */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+	background-color: #2d3a69;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #2e3141;
+	width: 80%;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+
+}
+
+#search-button {
+	display: block;
+	margin: 0 auto;
+}
+
+.pagination {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.page-link {
+	display: inline-block;
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	color: #fff;
+	text-decoration: none;
+}
+
+.page-link.active {
+	background-color: #fff;
+	color: #333;
+	border-color: #555867;
+}
+
+.page-link:hover {
+	background-color: #2d3a69;
+
+}
+
+#map-section {
+	display: flex;
+	flex-direction: row;
+	height: 600px;
+}
+
+#sidebar {
+	flex: 0 0 50%;
+	height: 100%;
+	overflow-y: auto;
+	padding: 10px;
+}
+
+#map {
+	flex: 1;
+	height: 100%;
+}
+
+#search-input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#photo-list {
+	list-style: none;
+	padding: 0;
+}
+
+.photo-item {
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #3f4e85;
+	cursor: pointer;
+}
+
+.photo-item img {
+	width: 100px;
+	height: auto;
+	margin-right: 10px;
+}
+
+.photo-item h3 {
+	margin: 0;
+	font-size: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.photo-item h3 {
+	margin: 0;
+	font-size: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.popup-link {
+	color: inherit; /* Maintain the original color */
+	text-decoration: none; /* Remove underline */
+}
+
+#map-section .popup-link:hover {
+	color: inherit !important; /* Ensure the original color is maintained on hover */
+}
+
+/*
+.artista-page .features {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+}
+
+.artista-page .features article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 200px;
+	margin: 10px;
+}
+
+.artista-page .features .image {
+	width: 100%;
+	height: auto;
+}
+
+.artista-page .features .image img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.artista-page .features .card-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.artista-page .features .card-text {
+	max-width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+*/
+
+.artista-page .features article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 200px; /* Set a fixed width for each article */
+	height: 300px; /* Set a fixed height for each article */
+	margin: 10px; /* Add margin around each article */
+	background-color: #353849; /* Ensure the background color is consistent */
+	border-radius: 5px; /* Add border radius for rounded corners */
+	overflow: hidden; /* Ensure content does not overflow */
+}
+
+.artista-page .features .image {
+	/* Ensure the image container takes full width */
+	height: 200px; /* Set a fixed height for the image container */
+}
+
+.artista-page .features .image img {
+	/* Ensure the image takes full width */
+	height: 100%; /* Ensure the image takes full height */
+	object-fit: cover;
+	margin-left: 27px;/* Ensure the image covers the area without distortion */
+}
+
+.artista-page .features .card-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 10px; /* Add padding inside the card body */
+	height: 100px; /* Set a fixed height for the card body */
+	overflow: hidden; /* Ensure content does not overflow */
+}
+
+.artista-page .features .card-title {
+	font-size: 1em; /* Set font size for the title */
+	margin-bottom: 5px; /* Add margin below the title */
+}
+
+.artista-page .features .card-text {
+	font-size: 0.9em; /* Set font size for the text */
+	max-width: 180px; /* Set a maximum width for the text */
+	white-space: nowrap; /* Prevent text from wrapping */
+	overflow: hidden; /* Ensure text does not overflow */
+	text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+.artista-galley #foto_artista {
+	width: 300px; /* Larghezza fissa */
+	height: auto; /* Altezza proporzionale */
+	max-width: 100%; /* Assicurati che l'immagine non superi la larghezza del contenitore */
+	display: block;
+	margin: 0 auto; /* Centra l'immagine orizzontalmente */
+}
+
+
+.breadcrumb-container {
+	display: flex;
+	justify-content: left;
+	width: 100%;
+}
+
+.breadcrumb {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background: none;
+}
+
+.breadcrumb-item {
+	margin-right: 5px;
+}
+
+.breadcrumb-item a {
+	text-decoration: none;
+	color: #007bff;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.breadcrumb-item a:hover {
+	text-decoration: underline;
+}
+
+.breadcrumb-item::after {
+	content: '>';
+	margin-left: 5px;
+}
+
+.breadcrumb-item:last-child::after {
+	content: '';
+}
+
+.breadcrumb-item span {
+	margin-right: 5px;
+	font-weight: bold;
+	text-transform: uppercase;
+
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+
+<html lang="it">
+	<head>
+		<title>Pagina Foto</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Dublin Core Metadata -->
+		<meta name="DC.title" content="Pagina Foto" />
+		<meta name="DC.creator" content="Your Name" />
+		<meta name="DC.subject" content="Photography, Art" />
+		<meta name="DC.description" content="A page showcasing the photos of an artist." />
+		<meta name="DC.publisher" content="Your Publisher" />
+		<meta name="DC.contributor" content="Contributor Name" />
+		<meta name="DC.date" content="2023-10-01" />
+		<meta name="DC.type" content="Text" />
+		<meta name="DC.format" content="text/html" />
+		<meta name="DC.identifier" content="http://example.com/artista_specifico.html" />
+		<meta name="DC.language" content="it" />
+		<meta name="DC.coverage" content="Worldwide" />
+		<meta name="DC.rights" content="© 2023 Your Name. All rights reserved." />
+	</head>
+
+
+	<body class="artista-galley" vocab="http://purl.org/dc/terms/" typeof="foaf:Document">
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<div class="inner">
+				<!-- Breadcrumb -->
+				<div class="breadcrumb-container">
+					<ol class="breadcrumb">
+						<span>sei nella pagina:</span>
+						<li class="breadcrumb-item">
+							<a href="index.html">Home</a>
+						<li class="breadcrumb-item">
+							<a href="artista.html">Lista Fotografi</a>
+						<li class="breadcrumb-item active">
+						<a id="scopri-di-piu"></a>
+						</li>
+					</ol>
+				</div>
+
+				<div class="logo"><span class="icon fa-gem"></span></div>
+			</div>
+			<h1><a class="button" href="artista.html">Torna alla lista</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="foto.html">Foto</a></li>
+					<li><a href="artista.html">Fotografi</a></li>
+					<li><a href="mappa.html">Mappa</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Banner -->
+		<section id="banner" style="height: 200px;">
+			<div class="inner" style="padding: 20px;">
+				<h2 class="major" id="nome_artista" align="center" style="margin-top: -70px;"></h2>
+			</div>
+		</section>
+
+		<!-- foto e dettagli -->
+		<section id="foto" class="wrapper alt style1">
+			<div class="inner">
+				<section class="features">
+				</section>
+			</div>
+			<article style="text-align: center; margin-top: -20px;">
+				<a class="image dynamic"><img id="foto_artista" src="" alt="" /></a>
+				<h3 class="major" id="nome_artista2"></h3>
+				<p id="descrizione_artista"></p>
+			</article>
+		</section>
+
+		<!-- Script to load photo details -->
+		<script>
+			const urlParams = new URLSearchParams(window.location.search);
+			const photoId = urlParams.get('id');
+
+			fetch('dataset.json')
+					.then(response => response.json())
+					.then(data => {
+						console.log('Dataset loaded:', data); // Debugging statement
+
+						const photo = data.find(item => item.id === photoId);
+
+						console.log('Photo found:', photo); // Debugging statement
+
+						if (photo) {
+							const nomeArtista = document.getElementById('nome_artista');
+							const nomeArtista2 = document.getElementById('nome_artista2');
+							const fotoArtista = document.getElementById('foto_artista');
+							const descrizioneArtista = document.getElementById('descrizione_artista');
+
+							const scopriDiPiuButton = document.getElementById('scopri-di-piu');
+							if (scopriDiPiuButton) {
+								scopriDiPiuButton.href = `artista_specifico.html?id=${photo.id}`;
+								scopriDiPiuButton.textContent = photo.artista; // Assuming `artista` is the name of the artist
+							} else {
+								console.error('Link element not found in the DOM.');
+							}
+
+							console.log('Elements:', { nomeArtista, fotoArtista, descrizioneArtista, scopriDiPiuButton  }); // Debugging statement
+
+							if (nomeArtista && fotoArtista && descrizioneArtista && scopriDiPiuButton) {
+								nomeArtista.textContent = photo.artista;
+								nomeArtista2.textContent = photo.artista;
+								fotoArtista.src = photo.foto_artista;
+								descrizioneArtista.textContent = photo.descrizione_artista;
+								scopriDiPiuButton.href = `artista_specifico.html?id=${photo.id}`;
+							} else {
+								console.error('One or more elements not found in the DOM.');
+							}
+						} else {
+							document.getElementById('foto-title').textContent = 'Foto non trovata.';
+						}
+					})
+					.catch(error => console.error('Errore durante il caricamento del dataset:', error));
+		</script>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<ul class="contact">
+					<li class="icon solid fa-home">
+						Untitled Inc<br />
+						1234 Somewhere Road Suite #2894<br />
+						Nashville, TN 00000-0000
+					</li>
+					<li class="icon solid fa-phone">(000) 000-0000</li>
+					<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+					<li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
+					<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
+					<li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="#">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	</body>
+
+
+</html>
