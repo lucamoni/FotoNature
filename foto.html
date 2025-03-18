@@ -65,11 +65,19 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<h2 align="center">FOTO</h2>
-							<p style="margin-bottom: 5px;text-transform: lowercase; text-align: center">Filtra i dati in base all'anno del concorso:</p>
-							<div id="filter-buttons" style="text-align: center;">
-							</div>
-							<button id="reset-button" class="button small fit" style="margin-top: 10px;">Reset</button>
+							<h2 align="center">CATALOGO FOTO</h2>
+						<p style="margin-bottom: 5px;text-transform: lowercase; text-align: center">Filtra i dati in base all'anno del concorso:</p>
+						<div id="filter-buttons" style="text-align: center;"></div>
+						<p style="margin-bottom: 5px;text-transform: lowercase; text-align: center">Filtra i dati in base alla categoria:</p>
+						<select id="category-select" style="text-align: center;">
+							<option value="">Tutte le categorie</option>
+							<option value="Animali selvatici">Animali selvatici</option>
+							<option value="Comportamenti animali">Comportamenti animali</option>
+							<option value="Fotografia macro">Fotografia macro</option>
+							<option value="Ritratti di animali">Ritratti di animali</option>
+							<option value="Fotografia subacquea">Fotografia subacquea</option>
+						</select>
+						<button id="reset-button" class="button small fit" style="margin-top: 10px;">Reset</button>
 						</div>
 					</section>
 
@@ -109,8 +117,10 @@
 				fetch('dataset.json')
 						.then(response => response.json())
 						.then(data => {
+							console.log('Data fetched:', data); // Debugging line
 							const years = [...new Set(data.map(item => item.anno))];
 							const filterButtonsContainer = document.getElementById('filter-buttons');
+							const categorySelect = document.getElementById('category-select');
 							const resetButton = document.getElementById('reset-button');
 							const itemsPerPage = 4;
 							let currentPage = 1;
@@ -121,19 +131,36 @@
 								button.className = 'button';
 								button.onclick = () => {
 									currentPage = 1;
-									filterPhotosByYear(year);
+									filterPhotos();
 								};
 								filterButtonsContainer.appendChild(button);
 							});
 
+							categorySelect.addEventListener('change', () => {
+								currentPage = 1;
+								filterPhotos();
+							});
+
 							resetButton.addEventListener('click', () => {
 								currentPage = 1;
+								document.getElementById('category-select').value = '';
 								renderPhotos(data, currentPage);
 								renderPagination(data.length, currentPage);
 							});
 
-							function filterPhotosByYear(year) {
-								const filteredData = data.filter(item => item.anno === year);
+							function filterPhotos() {
+								const selectedYear = document.querySelector('.button.active')?.textContent;
+								const selectedCategory = categorySelect.value;
+								let filteredData = data;
+
+								if (selectedYear) {
+									filteredData = filteredData.filter(item => item.anno === selectedYear);
+								}
+
+								if (selectedCategory) {
+									filteredData = filteredData.filter(item => item.categoria.includes(selectedCategory));
+								}
+
 								renderPhotos(filteredData, currentPage);
 								renderPagination(filteredData.length, currentPage);
 							}
@@ -145,17 +172,21 @@
 								const end = start + itemsPerPage;
 								const pageItems = photos.slice(start, end);
 
+								console.log('Rendering photos:', pageItems); // Debugging line
+
 								pageItems.forEach(item => {
+									const categories = Array.isArray(item.categoria) ? item.categoria.join(', ') : item.categoria;
 									const article = document.createElement('article');
 									article.innerHTML = `
-                        <a href="foto_specifica.html?id=${item.id}" class="image"><img src="${item.image}" alt="${item.title}" /></a>
-                        <div class="card-body">
-                        	<h5 class="card-title">Anno di concorso: ${item.anno}</h5>
-                            <h3 class="card-title">${item.title}</h3>
-                            <p class="card-text">${item.description}</p>
-                            <a class="card-text" href="foto_specifica.html?id=${item.id}"/>Scopri di più</a>
-                        </div>
-                    `;
+									  <a href="foto_specifica.html?id=${item.id}" class="image"><img src="${item.image}" alt="${item.title}" /></a>
+									  <div class="card-body">
+										<h5 class="card-title">Anno di concorso: ${item.anno}</h5>
+										<h5 class="card-title">Categorie: ${categories}</h5>
+										<h3 class="card-title">${item.title}</h3>
+										<p class="card-text">${item.description}</p>
+										<a class="card-text" href="foto_specifica.html?id=${item.id}"/>Scopri di più</a>
+									  </div>
+									`;
 									wrapper.appendChild(article);
 								});
 							}
@@ -176,7 +207,7 @@
 									pageLink.addEventListener('click', (e) => {
 										e.preventDefault();
 										currentPage = i;
-										renderPhotos(data, currentPage);
+										filterPhotos();
 										renderPagination(totalItems, currentPage);
 									});
 									pagination.appendChild(pageLink);

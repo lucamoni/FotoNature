@@ -38,6 +38,7 @@
 									<li class="breadcrumb-item">
 										<span>sei nella pagina:</span>
 										<a href="index.html">Home</a>
+									</li>
 									<li class="breadcrumb-item active">
 										<a href="artista.html">Lista Fotografi</a>
 									</li>
@@ -65,13 +66,55 @@
 						</div>
 					</nav>
 
-				<!-- Banner -->
+					<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
 							<h2 align="center">FOTOGRAFI</h2>
 						</div>
 					</section>
+
+					<!-- Main Content -->
+					<section id="four" class="wrapper alt style1">
+						<div class="inner">
+							<section class="features2">
+							</section>
+							<div id="pagination" class="pagination"></div>
+						</div>
+					</section>
+
+					<!-- Footer -->
+					<section id="footer">
+						<div class="inner" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+							<p>Tutti i diritti sui contenuti di questo sito (nomi, immagini, testi ecc.) sono di proprietà dei rispettivi autori e/o enti promotori, sotto la tutela delle leggi internazionali sul copyright/trademark.<br />
+								Questo progetto è totalmente privo di scopi di lucro da parte dell'autore. Lo scopo è puramente amatoriale e perciò non è assolutamente affiliato o dipendente da alcun ente o autore.<br />
+							</p>
+							<h3 style="margin-bottom: -20px">Segui i profili ufficiali</h3>
+							<ul class="contact">
+								<li class="icon brands fa-facebook-f social-icon" style="margin-right: 20px;">
+									<a href="https://www.facebook.com/worldnaturephotographyawards/" style="margin-left: -10px;">Facebook</a>
+								</li>
+								<li class="icon brands fa-instagram social-icon">
+									<a href="https://www.instagram.com/worldnaturephotographyawards/?hl=it" style="margin-left: -10px;">Instagram</a>
+								</li>
+							</ul>
+							<ul class="copyright" style="display: flex; justify-content: center;">
+								<li>LINK UTILI</li>
+								<li><a href="web_project_plan.html">WEB PROJECT PLAN</a></li>
+								<li><a href="index.html">CREDITS</a></li>
+								<li><a href="web_project_plan.html">INFO</a></li>
+							</ul>
+						</div>
+					</section>
+
 				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.scrollex.min.js"></script>
+				<script src="assets/js/browser.min.js"></script>
+				<script src="assets/js/breakpoints.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
 
 				<script>
 					// Fetch the dataset and initialize pagination
@@ -82,24 +125,20 @@
 								let currentPage = 1;
 
 								function renderPage(page) {
-									const wrapper = document.querySelector('.features');
+									const wrapper = document.querySelector('.features2');
 									wrapper.innerHTML = '';
 									const start = (page - 1) * itemsPerPage;
 									const end = start + itemsPerPage;
 									const pageItems = data.slice(start, end);
 
 									pageItems.forEach(item => {
-										const article = document.createElement('article');
-
-
+										const article = document.createElement('article2');
 										article.innerHTML = `
-										<a href="artista_specifico.html?id=${item.id}" class="image"><img src="${item.foto_artista}" alt="${item.artista}" /></a>
-										<div class="card-body">
-											<h5 class="card-title">${item.artista}</h5>
-
-
-										</div>
-									`;
+								<a href="artista_specifico.html?id=${item.id}" class="image"><img src="${item.foto_artista}" alt="${item.artista}" /></a>
+								<div class="card-body">
+									<h5 class="card-title">${item.artista}</h5>
+								</div>
+							`;
 										wrapper.appendChild(article);
 									});
 
@@ -132,87 +171,5 @@
 							})
 							.catch(error => console.error('Errore durante il caricamento del dataset:', error));
 				</script>
-
-
-				<!-- Script per caricare il dataset
-				<script>
-					fetch('dataset.json')
-							.then(response => response.json())
-							.then(data => {
-								const wrapper = document.querySelector('.features');
-								const maxLength = 150; // Set the maximum length of the description
-
-								data.forEach((item) => {
-									const truncatedDescription = item.descrizione_artista.length > maxLength
-											? item.descrizione_artista.substring(0, maxLength) + '...'
-											: item.descrizione_artista;
-
-
-									// Creazione di ogni riquadro "article"
-									const article = document.createElement('article');
-									article.innerHTML = `
-					<a href="foto_specifica.html?id=${item.id}" class="image"><img src="${item.foto_artista}" alt="${item.nome_artista}" /></a>
-					<div class="card-body">
-						<h5 class="card-title">${item.artista}</h5>
-						<p class="card-text">${truncatedDescription}</p>
-						<a class="card-text" href="artista_specifico.html?id=${item.id}"/>Scopri di più</a>
-					</div>
-			`;
-
-									// Aggiunta del riquadro al wrapper
-									wrapper.appendChild(article);
-								});
-							})
-							.catch(error => console.error('Errore durante il caricamento del dataset:', error));
-				</script>
--->
-
-
-
-		<section id="four" class="wrapper alt style1">
-			<div class="inner">
-				<section class="features">
-				</section>
-				<div id="pagination" class="pagination"></div>
-			</div>
-		</section>
-
-
-
-
-				<!-- Footer -->
-				<section id="footer">
-					<div class="inner" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-						<p>Tutti i diritti sui contenuti di questo sito (nomi, immagini, testi ecc.) sono di proprietà dei rispettivi autori e/o enti promotori, sotto la tutela delle leggi internazionali sul copyright/trademark.<br />
-							Questo progetto è totalmente privo di scopi di lucro da parte dell'autore. Lo scopo è puramente amatoriale e perciò non è assolutamente affiliato o dipendente da alcun ente o autore.<br />
-						</p>
-						<h3 style="margin-bottom: -20px">Segui i profili ufficiali</h3>
-						<ul class="contact">
-							<li class="icon brands fa-facebook-f social-icon" style="margin-right: 20px;">
-								<a href="https://www.facebook.com/worldnaturephotographyawards/" style="margin-left: -10px;">Facebook</a>
-							</li>
-							<li class="icon brands fa-instagram social-icon">
-								<a href="https://www.instagram.com/worldnaturephotographyawards/?hl=it" style="margin-left: -10px;">Instagram</a>
-							</li>
-						</ul>
-						<ul class="copyright" style="display: flex; justify-content: center;">
-							<li>LINK UTILI</li>
-							<li><a href="web_project_plan.html">WEB PROJECT PLAN</a></li>
-							<li><a href="index.html">CREDITS</a></li>
-							<li><a href="web_project_plan.html">INFO</a></li>
-						</ul>
-					</div>
-				</section>
-
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>

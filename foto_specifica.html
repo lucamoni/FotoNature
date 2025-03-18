@@ -85,7 +85,8 @@
 					<article style="text-align: center">
 						<a class="image dynamic"><img id="foto-img" src="" alt="" /></a>
 						<h5 id="anno-concorso" style="margin-top: 5px"></h5>
-						<h3 class="major" id="foto-title"></h3>
+						<h5 id="categoria" style="margin-top: 5px"></h5>
+						<h2 class="major" id="foto-title"></h2>
 						<p id="foto-description"></p>
 						<a id="download-button" class="button primary icon solid fa-download" href="#" download>Download Foto</a>
 					</article>
@@ -115,10 +116,17 @@
 									const fotoArtista = document.getElementById('foto_artista');
 									const descrizioneArtista = document.getElementById('descrizione_artista');
 									const annoConcorso = document.getElementById('anno-concorso');
+									const Categoria = document.getElementById('categoria');
 									const scopriDiPiuButton = document.getElementById('scopri-di-piu');
 									const scopriDiPiu = document.getElementById('scopri-di-piu2');
 									const downloadButton = document.getElementById('download-button');
 
+									if (Categoria) {
+										const categories = Array.isArray(photo.categoria) ? photo.categoria.join(', ') : photo.categoria;
+										Categoria.textContent = `Categoria: ${categories}`;
+									} else {
+										console.error('Categoria element not found in the DOM.');
+									}
 									if (scopriDiPiu) {
 										scopriDiPiu.href = `foto_specifica.html?id=${photo.id}`;
 										scopriDiPiu.textContent = photo.title;
@@ -126,7 +134,7 @@
 										console.error('Link element not found in the DOM.');
 									}
 
-									if (fotoImg && fotoTitle && fotoDescription && fotoTitle2 && nomeArtista && fotoArtista && descrizioneArtista && scopriDiPiuButton && annoConcorso) {
+									if (fotoImg && fotoTitle && fotoDescription && fotoTitle2 && nomeArtista && fotoArtista && descrizioneArtista && scopriDiPiuButton && annoConcorso && downloadButton && Categoria) {
 										fotoImg.src = photo.image;
 										fotoTitle.textContent = photo.title;
 										fotoDescription.textContent = photo.description;
@@ -154,6 +162,7 @@
 								}
 							})
 							.catch(error => console.error('Errore durante il caricamento del dataset:', error));
+
 				</script>
 
 				<!-- Wrapper -->
