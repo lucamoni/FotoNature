@@ -179,7 +179,7 @@
                 </article>
                 <article>
                     <h3> 4.2 Schema delle Dipendenze</h3>
-                    <a class=dynamic-image2"><img src="images/schema delle dipendenze.jpg" alt="" /></a>
+                    <a class=dynamic-image"><img src="images/schema delle dipendenze.jpg" alt="" /></a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
                 </article>
                 <article>
@@ -326,6 +326,22 @@
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const image = document.getElementById('dynamic-image');
+        const fullScreenImageDiv = document.querySelector('.full-screen-image');
+
+        const makeImageFullScreen = () => {
+            fullScreenImageDiv.style.width = '100%';
+            fullScreenImageDiv.style.height = 'auto';
+            image.style.width = '100%';
+            image.style.height = 'auto';
+            image.style.objectFit = 'cover';
+        };
+
+        makeImageFullScreen();
+    });
+</script>
 
 </body>
 </html>

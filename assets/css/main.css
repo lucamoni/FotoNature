@@ -4490,3 +4490,91 @@ input, select, textarea {
 	display: inline-block;
 	margin-right: 10px; /* Adjust the spacing as needed */
 }
+
+.full-screen-image {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+.full-screen-image img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1200px) {
+	.full-screen-image img {
+		object-fit: contain;
+	}
+}
+
+@media (max-width: 768px) {
+	.full-screen-image img {
+		object-fit: scale-down;
+	}
+}
+
+@media (max-width: 480px) {
+	.full-screen-image img {
+		object-fit: fill;
+	}
+}
+
+.features2 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 20px; /* Adjust the gap between cards as needed */
+}
+
+.features2 article2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 200px; /* Set a fixed width for each article */
+	height: 300px; /* Set a fixed height for each article */
+	margin: 10px; /* Add margin around each article */
+	background-color: #353849; /* Ensure the background color is consistent */
+	border-radius: 5px; /* Add border radius for rounded corners */
+	overflow: hidden; /* Ensure content does not overflow */
+}
+
+.features2 .image {
+	width: 100%;
+	height: 200px; /* Set a fixed height for the image container */
+	overflow: hidden; /* Ensure the image does not overflow the container */
+}
+
+.features2 .image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.features2 .card-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 10px; /* Add padding inside the card body */
+	height: 100px; /* Set a fixed height for the card body */
+	overflow: hidden; /* Ensure content does not overflow */
+}
+
+.features2 .card-title {
+	font-size: 1em; /* Set font size for the title */
+	margin-bottom: 5px; /* Add margin below the title */
+}
+
+.features2 .card-text {
+	font-size: 0.9em; /* Set font size for the text */
+	max-width: 180px; /* Set a maximum width for the text */
+	white-space: nowrap; /* Prevent text from wrapping */
+	overflow: hidden; /* Ensure text does not overflow */
+	text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
