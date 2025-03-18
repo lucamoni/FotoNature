@@ -15,7 +15,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">FOTONATURE</a></h1>
+
 
 						<!-- Breadcrumb -->
 						<div class="breadcrumb-container">
@@ -50,9 +50,9 @@
 					<section id="banner">
 						<div class="inner">
 
-							<div class="logo"><span class="icon fa-gem"></span></div>
+
 							<h2>fotonature</h2>
-							<p>PROVA SITO GALLERIA FOTO NATURA </p>
+							<p>La racconta delle grandi foto del World Nature Photography Awards </p>
 
 
 						</div>
@@ -64,15 +64,20 @@
 				<!-- Search Button -->
 				<button id="search-button" class="button">Cerca</button>
 
-				<!-- Search Modal -->
-				<div id="search-modal" class="modal">
-					<div class="modal-content">
-						<span id="close-search-modal" class="close">&times;</span>
-						<h2 class="major">Cerca Foto o Fotografi</h2>
-						<label for="search-input"></label><input type="text" id="search-input" placeholder="Cerca per titolo foto o nome fotografo..." oninput="searchDataset()">
-						<div id="search-results" class="box" style="margin-top: 20px;"></div>
-					</div>
-				</div>
+		<!-- Search Modal -->
+		<div id="search-modal" class="modal">
+			<div class="modal-content">
+				<span id="close-search-modal" class="close">&times;</span>
+				<h2 class="major">Cerca Foto o Fotografi</h2>
+				<label for="search-input"></label>
+				<input type="text" id="search-input" placeholder="Cerca per titolo foto o nome fotografo..." oninput="searchDataset()">
+				<p style="margin-bottom: 5px;">Filtra i dati in base all'anno del concorso:</p>
+				<div id="year-buttons-container" style="margin-top: 2px; margin-bottom: 2px"></div>
+				<button id="reset-button" class="button small fit">Reset</button>
+
+				<div id="search-results" class="box" style="margin-top: 20px;"></div>
+			</div>
+		</div>
 
 				<script>
 					// Get the close button element for the search modal
@@ -108,7 +113,30 @@
 						}
 					}
 
-					function searchDataset() {
+					document.addEventListener('DOMContentLoaded', () => {
+						fetch('dataset.json')
+								.then(response => response.json())
+								.then(data => {
+									const years = [...new Set(data.map(item => item.anno))];
+									const yearButtonsContainer = document.getElementById('year-buttons-container');
+									years.forEach(year => {
+										const button = document.createElement('button');
+										button.textContent = year;
+										button.style.color = 'white';
+										button.onclick = () => searchDataset(year);
+										yearButtonsContainer.appendChild(button);
+									});
+
+									const resetButton = document.getElementById('reset-button');
+									resetButton.addEventListener('click', () => {
+										document.getElementById('search-input').value = '';
+										searchDataset();
+									});
+								})
+								.catch(error => console.error('Errore durante il caricamento del dataset:', error));
+					});
+
+					function searchDataset(selectedYear = null) {
 						const query = document.getElementById('search-input').value.toLowerCase();
 						const resultsBox = document.getElementById('search-results');
 						resultsBox.innerHTML = '';
@@ -116,21 +144,25 @@
 						fetch('dataset.json')
 								.then(response => response.json())
 								.then(data => {
-									const results = data.filter(item =>
+									let results = data.filter(item =>
 											item.title.toLowerCase().includes(query) ||
 											item.artista.toLowerCase().includes(query)
 									);
+
+									if (selectedYear) {
+										results = results.filter(item => item.anno === selectedYear);
+									}
 
 									if (results.length > 0) {
 										results.forEach(item => {
 											const resultItem = document.createElement('div');
 											resultItem.className = 'result-item';
 											resultItem.innerHTML = `
-              <h3>${item.title}</h3>
-              <p>Fotografo: ${item.artista}</p>
-              <a href="foto_specifica.html?id=${item.id}" class="button">Vedi Foto</a>
-              <a href="artista_specifico.html?id=${item.id}" class="button">Vedi Fotografo</a>
-            `;
+                        <h3>${item.title}</h3>
+                        <p>Fotografo: ${item.artista}</p>
+                        <a href="foto_specifica.html?id=${item.id}" class="button">Vedi Foto</a>
+                        <a href="artista_specifico.html?id=${item.id}" class="button">Vedi Fotografo</a>
+                    `;
 											resultsBox.appendChild(resultItem);
 										});
 									} else {
@@ -152,26 +184,42 @@
 						<!-- catalogo foto -->
 							<section id="one" class="wrapper spotlight style1">
 								<div class="inner">
-									<a class="image-foto"><img src="images/foto1.jpg" alt="" /></a>
+									<a class="image"><img src="images/foto1 copia.jpg" alt="" /></a>
 									<div class="content">
 										<h2 class="major">SFOGLIA IL CATALOGO DELLE FOTO</h2>
-										<p>Scopri tutte le foto del concorso</p>
+										<p>Scopri le foto del concorso</p>
 										<a href="foto.html" class="button special">Vai al catalogo</a>
 									</div>
 								</div>
 							</section>
 
-						<!-- Two -->
+						<!-- Lista fotografi -->
 							<section id="two" class="wrapper alt spotlight style2">
 								<div class="inner">
+
 									<a class="image"><img src="images/foto_artista1.jpeg" alt="" /></a>
 									<div class="content">
 										<h2 class="major">SFOGLIA LA LISTA DEGLI ARTISTI</h2>
-										<p>Scopri tutti i fotogratfi del concorso</p>
+										<p>Scopri i fotografi del concorso</p>
 										<a href="artista.html" class="button special">Vai alla lista completa</a>
 									</div>
 								</div>
 							</section>
+
+						<!-- mappa interattiva -->
+						<section id="three" class="wrapper spotlight style3">
+							<div class="inner">
+								<a class="image"><img src="images/mappa1.jpg" alt="" /></a>
+								<div class="content">
+									<h2 class="major">SCOPRI DOVE SONO STATE SCATTATE LE FOTO</h2>
+									<p>Cerca le foto preferite sulla  mappa interattiva</p>
+									<a href="mappa.html" class="button special">Vai alla mappa</a>
+								</div>
+							</div>
+						</section>
+
+
+
 					</section>
 
 						<!--	Three
@@ -226,47 +274,29 @@
 
 					</section>
  				-->
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-							<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-							<ul class="contact">
-								<li class="icon solid fa-home">
-									Untitled Inc<br />
-									1234 Somewhere Road Suite #2894<br />
-									Nashville, TN 00000-0000
-								</li>
-								<li class="icon solid fa-phone">(000) 000-0000</li>
-								<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-								<li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
-								<li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+				<p>Tutti i diritti sui contenuti di questo sito (nomi, immagini, testi ecc.) sono di proprietà dei rispettivi autori e/o enti promotori, sotto la tutela delle leggi internazionali sul copyright/trademark.<br />
+					Questo progetto è totalmente privo di scopi di lucro da parte dell'autore. Lo scopo è puramente amatoriale e perciò non è assolutamente affiliato o dipendente da alcun ente o autore.<br />
+				</p>
+				<h3 style="margin-bottom: -20px">Segui i profili ufficiali</h3>
+				<ul class="contact">
+					<li class="icon brands fa-facebook-f social-icon" style="margin-right: 20px;">
+						<a href="https://www.facebook.com/worldnaturephotographyawards/" style="margin-left: -10px;">Facebook</a>
+					</li>
+					<li class="icon brands fa-instagram social-icon">
+						<a href="https://www.instagram.com/worldnaturephotographyawards/?hl=it" style="margin-left: -10px;">Instagram</a>
+					</li>
+				</ul>
+				<ul class="copyright" style="display: flex; justify-content: center;">
+					<li>LINK UTILI</li>
+					<li><a href="web_project_plan.html">WEB PROJECT PLAN</a></li>
+					<li><a href="index.html">CREDITS</a></li>
+					<li><a href="web_project_plan.html">INFO</a></li>
+				</ul>
+			</div>
+		</section>
 
 
 

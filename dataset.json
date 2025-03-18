@@ -1,107 +1,107 @@
 [
-  {"id": "1", "title": "L’orso polare gioca come un cucciolo", "description": "la gioia di un grosso orso polare che nuota nelle acque gelide al largo delle Svalbard, in Norvegia, cercando di addentare un bastone",
+  {"id": "1","anno": 2025, "title": "L’orso polare gioca come un cucciolo", "description": "la gioia di un grosso orso polare che nuota nelle acque gelide al largo delle Svalbard, in Norvegia, cercando di addentare un bastone",
     "image": "images/foto1.jpg", "artista":  "Tom Nickels","foto_artista":"images/foto_artista1.jpeg",  "descrizione_artista": "Il fotografo naturalista finlandese Tom Nickels si specializza nella cattura della fauna artica, degli uccelli e dei paesaggi del nord. Il suo lavoro lo porta nelle regioni più remote, dove ricerca la purezza e l'autenticità della natura.\n\nGuidato dalla luce, dall’atmosfera e dall’azione, il suo stile fotografico è minimalista e creativo. Piuttosto che documentare semplicemente la fauna selvatica, mira a creare immagini evocative, offrendo prospettive uniche e un legame profondo con il mondo naturale.\n\nIl suo progetto in corso, On the Edge of Silence, esplora le specie artiche nel loro habitat, mettendone in evidenza sia la fragilità che la resilienza di fronte ai cambiamenti ambientali. Questo lavoro sarà esposto in mostre future, offrendo uno sguardo intimo su questi ecosistemi remoti.\n\nOltre alla fotografia, Tom Nickels guida spedizioni in luoghi straordinari come Islanda, Svalbard e Grecia, aiutando altri appassionati a vivere e immortalare la natura in scenari unici. Il suo obiettivo, ovunque si trovi, è condividere la bellezza e la silenziosa drammaticità del mondo selvaggio attraverso le sue immagini.",
     "luogo": {
       "lat": 78.223,
       "lng": 15.646
     }},
-  {"id": "2", "title": "La volpe salterina", "description": " cucciolo di volpe che salta tra i tronchi a Lac La Biche, Alberta, Canada",
-    "image": "images/foto2.jpg", "artista":  "Donna Feledichuk","foto_artista":"images/foto_artista2.jpg", "descrizione_artista": "Artista1vdvfvd descrizione",
+  {"id": "2","anno": 2025, "title": "La volpe salterina", "description": " cucciolo di volpe che salta tra i tronchi a Lac La Biche, Alberta, Canada",
+    "image": "images/foto2.jpg", "artista":  "Donna Feledichuk","foto_artista":"images/foto_artista2.jpg", "descrizione_artista": "Donna Feledichuk è un’ex insegnante diventata fotografa naturalistica, con una profonda passione per la Foresta Boreale. Attraverso le sue immagini, racconta la vita della fauna selvatica e promuove la conservazione dell’ambiente.\n\nMembro del Canadian Conservation Photographers Collective, il suo lavoro è stato pubblicato su BBC Wildlife, National Geographic (Español) e Canadian Geographic. Riconosciuta tra i migliori fotografi naturalistici del Canada nel 2023, collabora con il Dr. Jason Fisher per un libro sulla Foresta Boreale e il declino del caribù.\n\nAttraverso le sue fotografie, Feledichuk sensibilizza il pubblico sull'importanza della natura, sostenendo cause ambientali e donando il ricavato delle sue opere alla conservazione.",
     "luogo": {
     "lat": 54.7667,
     "lng": 111.9667
   }},
-  {"id": "3", "title": "Migliaia di uccelli", "description": "Decine di migliaia di uccellini della specie piovanello maggiore sono costretti a volare dai banchi di ghiaia e dalle piane fangose a causa dell'alta marea primaverile in arrivo",
+  {"id": "3","anno": 2025, "title": "Migliaia di uccelli", "description": "Decine di migliaia di uccellini della specie piovanello maggiore sono costretti a volare dai banchi di ghiaia e dalle piane fangose a causa dell'alta marea primaverile in arrivo",
     "image": "images/foto3.jpg", "artista":  "Clive Burns","foto_artista":"images/foto_artista3.jpg", "descrizione_artista": "Clive Burns è un fotografo noto per il suo approccio unico e visivamente suggestivo. La sua carriera si distingue per l'uso innovativo della luce e delle ombre, combinato con una forte attenzione ai dettagli e alle emozioni che riesce a catturare nelle sue immagini. Burns ha sviluppato uno stile che unisce la fotografia fine art con il reportage, creando opere che raccontano storie attraverso il potere della fotografia.\n\nSebbene non sia una figura di notorietà mainstream come alcuni fotografi famosi, il suo lavoro ha suscitato l'ammirazione di appassionati e critici di fotografia. La sua carriera si è concentrata su temi legati alla cultura, alla società e ai paesaggi urbani, catturando momenti di vita quotidiana e spesso evidenziando le dinamiche sociali di luoghi specifici.",
   "luogo": {
   "lat": 52.8696,
   "lng": 0.4977
 }},
-  {"id": "4", "title": "Il viaggio della tartaruga", "description": "un momento toccante quando una giovane tartaruga bastarda olivacea intraprende il suo viaggio nel vasto oceano aperto a Kasait, Timor Est",
+  {"id": "4","anno": 2025, "title": "Il viaggio della tartaruga", "description": "un momento toccante quando una giovane tartaruga bastarda olivacea intraprende il suo viaggio nel vasto oceano aperto a Kasait, Timor Est",
     "image": "images/foto4.jpg", "artista":  "Daniel Flormann","foto_artista":"images/foto_artista4.jpg", "descrizione_artista": "Daniel Flormann è un fotografo noto per il suo lavoro che esplora temi legati alla natura, alla vita selvaggia e ai paesaggi. La sua fotografia si distingue per l'uso del paesaggio come mezzo per raccontare storie più ampie, catturando emozioni e momenti unici che si verificano in natura. Spesso combinando tecniche di fotografia tradizionale con un approccio molto personale e riflessivo, Daniel crea immagini che evocano una connessione profonda con il mondo naturale.",
     "luogo": {
       "lat": -8.8333,
       "lng": 125.9167
     }},
-  {"id": "5", "title": "La faraona", "description": "una faraona comune in Tanzania",
+  {"id": "5","anno": 2025, "title": "La faraona", "description": "una faraona comune in Tanzania",
     "image": "images/foto5.jpg", "artista":  "Ngar Shun Victor Wong","foto_artista":"images/foto_artista5.jpg", "descrizione_artista": "Ngar Shun Victor Wong è un fotografo che si è guadagnato riconoscimenti per il suo lavoro nell'ambito della fotografia documentaristica e street photography. La sua storia professionale si distingue per un approccio intenso e personale nel catturare momenti di vita quotidiana e trasformarli in narrazioni visive. Wong è noto per il suo stile che combina l'osservazione intima e il dinamismo urbano, creando immagini che raccontano storie complesse ed emotive.",
     "luogo": {
       "lat": 6.3690,
       "lng": 34.8888
     }},
-  {"id": "6", "title": "Eruzione e lava", "description": "foto scattata in inverno in Islanda, sulla penisola di Reykjanes, e che mostra dall'alto una spettacolare eruzione vulcanica con la lava che inghiotte tutto ciò che trova sulla sua strada",
+  {"id": "6","anno": 2025, "title": "Eruzione e lava", "description": "foto scattata in inverno in Islanda, sulla penisola di Reykjanes, e che mostra dall'alto una spettacolare eruzione vulcanica con la lava che inghiotte tutto ciò che trova sulla sua strada",
     "image": "images/foto6.jpg", "artista":  "Ael Kermarec","foto_artista":"images/foto_artista6.jpg", "descrizione_artista": "Ael Kermarec è un fotografo e artista che si distingue per il suo approccio visivo e concettuale, con una particolare attenzione all’aspetto umano e ai ritratti. La sua fotografia spazia tra il reportage, il ritratto e la moda, ma ciò che la caratterizza è una visione molto personale e unica, che spesso mescola la sensibilità verso l’ambiente e l'umanità.",
     "luogo": {
     "lat": 63.8333,
     "lng": -22.7167
   }},
-  {"id": "7", "title": "I cervi corrono nel vigneto", "description": "due cervi che corrono nel vigneto innevato a Murščak, in Slovenia",
+  {"id": "7","anno": 2025, "title": "I cervi corrono nel vigneto", "description": "due cervi che corrono nel vigneto innevato a Murščak, in Slovenia",
     "image": "images/foto7.jpg", "artista":  "Maruša Puhek","foto_artista":"images/foto_artista7.jpg", "descrizione_artista": "Maruša Puhek è una fotografa che ha guadagnato attenzione nel campo della fotografia, in particolare per i suoi lavori artistici e ritratti. Purtroppo, non c'è moltissimo materiale facilmente accessibile riguardo alla sua storia personale o carriera, ma il suo stile tende a concentrarsi su un approccio creativo e intimo, spesso esplorando emozioni e situazioni quotidiane. Le sue foto sono caratterizzate da un uso particolare della luce, dei colori e della composizione, che danno una sensazione di autenticità e riflessione.",
     "luogo": {
     "lat": 46.594083,
     "lng": 16.062381
   }},
-  {"id": "8", "title": "La mantide", "description": "una mantide orchidea si appollaia con grazia su un fungo",
+  {"id": "8","anno": 2025, "title": "La mantide", "description": "una mantide orchidea si appollaia con grazia su un fungo",
     "image": "images/foto8.jpg", "artista":  "Irina Petrova","foto_artista":"images/foto_artista8.jpg", "descrizione_artista": "Irina Petrova è una fotografa russa conosciuta per il suo stile unico che combina elementi di fotografia narrativa e moda. Il suo lavoro spesso racconta storie visive che si concentrano su emozioni, persone e momenti intimi. Ha un'abilità particolare nel catturare l'essenza dei suoi soggetti, creando immagini evocative e coinvolgenti. La sua fotografia si distingue per l'uso di luci morbide e composizioni attente, che spesso sembrano quasi pittoriche.",
     "luogo": {
       "lat": 55.7558,
       "lng": 37.6173
     }},
-  {"id": "9", "title": "Elefante incatenato", "description": "le zampe incatenate di un elefante asiatico, fotografato nel Parco nazionale di Bardiya, in Nepal",
+  {"id": "9","anno": 2025, "title": "Elefante incatenato", "description": "le zampe incatenate di un elefante asiatico, fotografato nel Parco nazionale di Bardiya, in Nepal",
     "image": "images/foto9.jpg", "artista":  "Charlotte Keast","foto_artista":"images/foto_artista9.jpg", "descrizione_artista": "Charlotte Keast è una fotografa conosciuta per il suo approccio unico alla fotografia e per il suo talento nel raccontare storie attraverso immagini potenti ed evocative. Specializzata in fotografia di reportage e ritratti, spesso esplora temi legati alla natura, alla cultura e all'esperienza umana. Le sue opere sono caratterizzate da uno stile autentico, emotivo e coinvolgente, con un forte focus sul catturare momenti intimi e spontanei.",
     "luogo": {
       "lat": 28.8167,
       "lng": 80.4833
     }},
-  {"id": "10", "title": "Il gufo in strada", "description": "un gufo della Lapponia sorvolare una strada in California",
+  {"id": "10","anno": 2024, "title": "Il gufo in strada", "description": "un gufo della Lapponia sorvolare una strada in California",
     "image": "images/foto10.jpg", "artista":  "Elizabeth Yicheng Shen","foto_artista":"images/foto_artista10.jpg", "descrizione_artista": "Elizabeth Yicheng Shen è una fotografa nota per il suo approccio unico e la sua visione artistica nel campo della fotografia. Si distingue per raccontare storie attraverso immagini evocative, spesso concentrandosi su temi legati all'identità, alla cultura e alla memoria. Sebbene non sia tra le personalità più conosciute nel mainstream della fotografia, il suo lavoro ha attirato l'attenzione per la sua capacità di raccontare emozioni e storie complesse con una semplice inquadratura.",
     "luogo": {
       "lat": 36.7783,
       "lng": 119.4179
     }},
-  {"id": "11", "title": "Il riposo del tricheco", "description": "un tricheco che riposa sul ghiaccio nella tundra alle Svalbard",
+  {"id": "11","anno": 2024, "title": "Il riposo del tricheco", "description": "un tricheco che riposa sul ghiaccio nella tundra alle Svalbard",
     "image": "images/foto11.jpg", "artista":  "Malini Chandrasekar","foto_artista":"images/foto_artista11.jpg", "descrizione_artista": "Malini Chandrasekar è una fotografa conosciuta per il suo lavoro nel campo del ritratto e della fotografia documentaristica. Ha un approccio unico e sensibile nel catturare emozioni e storie, concentrandosi spesso su temi legati alla cultura, all'identità e alle esperienze individuali. Sebbene non sia ancora un nome di massa, ha guadagnato riconoscimenti per la sua capacità di raccontare storie profonde e autentiche attraverso l'obiettivo.",
     "luogo": {
       "lat": 78.0550,
       "lng": 14.2290
     }},
-  {"id": "12", "title": "Battaglia tra ippopotami", "description": "due ippopotami maschi combattono nel Parco nazionale di Mana Pools, in Zimbabwe",
+  {"id": "12","anno": 2024, "title": "Battaglia tra ippopotami", "description": "due ippopotami maschi combattono nel Parco nazionale di Mana Pools, in Zimbabwe",
     "image": "images/foto12.jpg", "artista":  " Jonathan Hodgetts","foto_artista":"images/foto_artista12.jpg", "descrizione_artista": "Jonathan Hodgetts è un fotografo noto per il suo lavoro di storytelling visivo, in particolare per il suo approccio alla fotografia di viaggio e alla narrazione attraverso le immagini. La sua fotografia si concentra spesso su temi di avventura, natura e esperienze umane, catturando momenti significativi che raccontano storie visive emotive.",
     "luogo": {
     "lat": 16.75,
     "lng": 29.00
   }},
-  {"id": "13", "title": "Il volo dell'airone", "description": "un airone bianco maggiore che spicca il volo nel bacino di Atchafalaya, in Louisiana, Usa",
+  {"id": "13","anno": 2024, "title": "Il volo dell'airone", "description": "un airone bianco maggiore che spicca il volo nel bacino di Atchafalaya, in Louisiana, Usa",
     "image": "images/foto13.jpg", "artista":  "Irene Amiet","foto_artista":"images/foto_artista13.jpg", "descrizione_artista": "Irene Amiet è una fotografa e storyteller che si distingue per il suo approccio intimo e personale nella narrazione visiva. Le sue opere esplorano tematiche legate all'identità, alla memoria e alla connessione umana. Spesso focalizzata su ritratti e scene quotidiane, Irene cerca di catturare momenti di vita autentici, mettendo in risalto emozioni e relazioni attraverso l'uso di luce e composizione.",
     "luogo": {
       "lat": 30.4167,
       "lng": 91.5000
     }},
-  {"id": "14", "title": "Il pasto dei ghepardi", "description": "Nell’Olare Conservancy, in Kenya, cinque ghepardi che si nutrono di un giovane alcelafo",
+  {"id": "14","anno": 2024, "title": "Il pasto dei ghepardi", "description": "Nell’Olare Conservancy, in Kenya, cinque ghepardi che si nutrono di un giovane alcelafo",
     "image": "images/foto14.jpg", "artista":  "Paul Goldstein","foto_artista":"images/foto_artista14.jpg", "descrizione_artista": "Paul Goldstein è un fotografo di fama internazionale, noto per il suo lavoro nel campo della fotografia sportiva e, in particolare, nel tennis. Ha iniziato la sua carriera come fotografo freelance, lavorando in eventi sportivi di alto profilo. Oltre alla fotografia sportiva, Goldstein ha lavorato su progetti più personali, esplorando temi legati alla natura, alla musica e alla vita quotidiana. La sua capacità di raccontare storie attraverso le immagini lo ha reso una figura di riferimento nel panorama della fotografia moderna.",
     "luogo": {
     "lat": 1.5920,
     "lng": 35.0713
   }},
-  {"id": "15", "title": "Rospo in città", "description": " un rospo calamita, visto da vicino, a Berlino, in Germania",
+  {"id": "15","anno": 2024, "title": "Rospo in città", "description": " un rospo calamita, visto da vicino, a Berlino, in Germania",
     "image": "images/foto15.jpg", "artista":  "Christian Passeri","foto_artista":"images/foto_artista15.jpg", "descrizione_artista": "Christian Passeri è un fotografo e storyteller italiano, noto per la sua abilità nell'immortalare momenti significativi e autentici, spesso in contesti naturali o urbani. Le sue foto sono caratterizzate da una forte componente emotiva, che racconta storie attraverso immagini potenti e suggestive. Passeri si distingue per il suo approccio narrativo alla fotografia, cercando di esplorare non solo l'estetica, ma anche il messaggio sottostante.",
     "luogo": {
     "lat": 52.5200,
     "lng": 13.4050
   }},
-  {"id": "16", "title": "La battaglia delle sterne", "description": "due esemplari di sterna guancebianche che combattono per il territorio sull'isola di Kubbar, in Kuwait",
+  {"id": "16","anno": 2024, "title": "La battaglia delle sterne", "description": "due esemplari di sterna guancebianche che combattono per il territorio sull'isola di Kubbar, in Kuwait",
     "image": "images/foto16.jpg", "artista":  "Mohammad Murad","foto_artista":"images/foto_artista16.jpg", "descrizione_artista": "Mohammad Murad è un fotografo noto per il suo lavoro nel campo della fotografia di storytelling. La sua arte si concentra sulla cattura di storie emozionanti e coinvolgenti attraverso immagini che raccontano narrazioni visive potenti. Sebbene non sia tra i fotografi più celebri a livello mondiale, ha guadagnato notorietà in ambienti artistici e nei circuiti di fotografia, grazie alla sua capacità di immortalare momenti autentici e significativi.",
     "luogo": {
       "lat": 28.6072,
       "lng": 48.1247
     }},
-  {"id": "17", "title": "Senza paura", "description": "un leone assopito nel Serengeti, in Tanzania. Col particolare di una femmina di lucertola agama che cammina vicino al grosso mammifero",
+  {"id": "17","anno": 2024, "title": "Senza paura", "description": "un leone assopito nel Serengeti, in Tanzania. Col particolare di una femmina di lucertola agama che cammina vicino al grosso mammifero",
     "image": "images/foto17.jpg", "artista":  "Jules Oldroyd","foto_artista":"images/foto_artista17.jpg", "descrizione_artista": "Jules Oldroyd è un fotografo noto per il suo lavoro che esplora vari aspetti della fotografia documentaristica e di viaggio. Nonostante non sia una delle figure più mainstream, ha sviluppato un approccio distintivo che si concentra sull'intimità e sull'autenticità dei momenti che cattura. La sua fotografia tende a mettere in luce storie personali e culturali, utilizzando una tecnica che enfatizza l'emozione e il contesto.",
     "luogo": {
     "lat": 2.3333,
     "lng": 34.8333
   }},
-  {"id": "18", "title": "Il salto del saltafango", "description": "un grande saltafango a macchie blu che salta fuori dall'acqua a Broome, nell'Australia occidentale",
+  {"id": "18","anno": 2024, "title": "Il salto del saltafango", "description": "un grande saltafango a macchie blu che salta fuori dall'acqua a Broome, nell'Australia occidentale",
     "image": "images/foto18.jpg", "artista":  "Georgina Steytler","foto_artista":"images/foto_artista18.jpg", "descrizione_artista": "Georgina Steytler è una fotografa che si distingue per il suo lavoro nel campo della fotografia documentaria e sociale. Con un approccio sensibile e profondo, Steytler ha esplorato temi legati alla cultura, all'identità e alle storie personali, cercando di catturare la bellezza nelle esperienze quotidiane.\n\nLa sua fotografia si caratterizza per la sua capacità di raccontare storie attraverso immagini che vanno oltre la superficie, creando un legame emotivo con chi osserva. Il suo lavoro ha ricevuto diversi riconoscimenti e ha contribuito a sensibilizzare su temi legati a esperienze di vita uniche e spesso marginalizzate.",
     "luogo": {
       "lat": 17.9615,

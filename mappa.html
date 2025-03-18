@@ -8,19 +8,32 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
+    <!-- Dublin Core Metadata -->
+    <meta name="DC.title" content="Mappa Interattiva" />
+    <meta name="DC.creator" content="Your Name" />
+    <meta name="DC.subject" content="Interactive Map, Photography" />
+    <meta name="DC.description" content="An interactive map showcasing photos from various locations." />
+    <meta name="DC.publisher" content="Your Publisher" />
+    <meta name="DC.contributor" content="Contributors' Names" />
+    <meta name="DC.date" content="2023-10-01" />
+    <meta name="DC.type" content="Text" />
+    <meta name="DC.format" content="text/html" />
+    <meta name="DC.identifier" content="http://example.com/mappa.html" />
+    <meta name="DC.language" content="it" />
+    <meta name="DC.coverage" content="Worldwide" />
+    <meta name="DC.rights" content="© 2023 Your Name" />
 </head>
 <body>
 <!-- Page Wrapper -->
 <div id="page-wrapper">
-
     <!-- Header -->
     <header id="header" class="alt">
         <div class="inner">
             <!-- Breadcrumb -->
             <div class="breadcrumb-container">
                 <ol class="breadcrumb">
-                    <span>sei nella pagina:</span>
                     <li class="breadcrumb-item">
+                        <span>sei nella pagina:</span>
                         <a href="index.html">Home</a>
                     <li class="breadcrumb-item active">
                         <a href="mappa.html">Mappa Interattiva</a>
@@ -30,12 +43,10 @@
             <div class="logo"><span class="icon fa-gem"></span></div>
         </div>
         <h1><a href="index.html">Torna alla Home</a></h1>
-
         <nav>
             <a href="#menu">Menu</a>
         </nav>
     </header>
-</div>
 
     <!-- Menu -->
     <nav id="menu">
@@ -51,7 +62,6 @@
         </div>
     </nav>
 
-
     <section id="banner">
         <div class="inner">
             <h2 align="center">MAPPA INTERATTIVA</h2>
@@ -63,30 +73,35 @@
         <div class="inner">
             <div id="map"></div>
             <div id="sidebar">
-                <input type="text" id="search-input" placeholder="Cerca in base alla foto..." />
+                <input type="text" id="search-input" placeholder="Cerca in base alla foto..." style="text-align: left;" />
+                <p style="text-align: left; margin-bottom: 5px;">filtra i risultati in base all'anno:</p>
+                <div id="year-buttons" style="text-align: left; margin-bottom: 5px;"></div>
+                <button id="reset-button" class="button small fit">Reset</button>
                 <ul id="photo-list"></ul>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <section id="footer">
-        <div class="inner">
+        <div class="inner" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <p>Tutti i diritti sui contenuti di questo sito (nomi, immagini, testi ecc.) sono di proprietà dei rispettivi autori e/o enti promotori, sotto la tutela delle leggi internazionali sul copyright/trademark.<br />
+                Questo progetto è totalmente privo di scopi di lucro da parte dell'autore. Lo scopo è puramente amatoriale e perciò non è assolutamente affiliato o dipendente da alcun ente o autore.<br />
+            </p>
+            <h3 style="margin-bottom: -20px">Segui i profili ufficiali</h3>
             <ul class="contact">
-                <li class="icon solid fa-home">
-                    Untitled Inc<br />
-                    1234 Somewhere Road Suite #2894<br />
-                    Nashville, TN 00000-0000
+                <li class="icon brands fa-facebook-f social-icon" style="margin-right: 20px;">
+                    <a href="https://www.facebook.com/worldnaturephotographyawards/" style="margin-left: -10px;">Facebook</a>
                 </li>
-                <li class="icon solid fa-phone">(000) 000-0000</li>
-                <li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-                <li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-                <li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
-                <li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+                <li class="icon brands fa-instagram social-icon">
+                    <a href="https://www.instagram.com/worldnaturephotographyawards/?hl=it" style="margin-left: -10px;">Instagram</a>
+                </li>
             </ul>
-            <ul class="copyright">
-                <li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            <ul class="copyright" style="display: flex; justify-content: center;">
+                <li>LINK UTILI</li>
+                <li><a href="web_project_plan.html">WEB PROJECT PLAN</a></li>
+                <li><a href="index.html">CREDITS</a></li>
+                <li><a href="web_project_plan.html">INFO</a></li>
             </ul>
         </div>
     </section>
@@ -109,22 +124,27 @@
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Fetch the dataset and add markers to the map and items to the sidebar
+    // Add the reset button event listener in the JavaScript
     fetch('dataset.json')
         .then(response => response.json())
         .then(data => {
             const sidebar = document.getElementById('photo-list');
             const searchInput = document.getElementById('search-input');
+            const yearButtonsContainer = document.getElementById('year-buttons');
+            const resetButton = document.getElementById('reset-button');
+            let markers = [];
 
             const displayPhotos = (photos) => {
                 sidebar.innerHTML = '';
+                markers.forEach(marker => map.removeLayer(marker));
+                markers = [];
+
                 photos.forEach(item => {
                     if (item.luogo) {
-                        // Add marker to the map
                         const marker = L.marker([item.luogo.lat, item.luogo.lng]).addTo(map);
                         marker.bindPopup(`<a href="foto_specifica.html?id=${item.id}" class="popup-link">${item.title}</a>`);
+                        markers.push(marker);
 
-                        // Add item to the sidebar
                         const photoItem = document.createElement('li');
                         photoItem.className = 'photo-item';
                         photoItem.innerHTML = `<img src="${item.image}" alt="${item.title}"><h3>${item.title}</h3>`;
@@ -137,14 +157,31 @@
                 });
             };
 
-            // Initial display of all photos
+            const uniqueYears = [...new Set(data.map(item => item.anno))];
+            uniqueYears.forEach(year => {
+                const button = document.createElement('button');
+                button.textContent = year;
+                button.setAttribute('data-year', year);
+                yearButtonsContainer.appendChild(button);
+
+                button.addEventListener('click', () => {
+                    const filteredPhotos = data.filter(item => item.anno === year);
+                    displayPhotos(filteredPhotos);
+                });
+            });
+
             displayPhotos(data);
 
-            // Filter photos based on search input
             searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.toLowerCase();
                 const filteredPhotos = data.filter(item => item.title.toLowerCase().includes(searchTerm));
                 displayPhotos(filteredPhotos);
+            });
+
+            resetButton.addEventListener('click', () => {
+                searchInput.value = '';
+                displayPhotos(data);
+                map.setView([30, 0], 1.5); // Reset map view to initial state
             });
         })
         .catch(error => console.error('Error loading dataset:', error));
