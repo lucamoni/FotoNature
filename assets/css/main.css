@@ -4528,7 +4528,7 @@ input, select, textarea {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
-	gap: 20px; /* Adjust the gap between cards as needed */
+	gap: 20px;
 }
 
 .features2 article2 {
@@ -4536,24 +4536,24 @@ input, select, textarea {
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	width: 200px; /* Set a fixed width for each article */
-	height: 300px; /* Set a fixed height for each article */
-	margin: 10px; /* Add margin around each article */
-	background-color: #353849; /* Ensure the background color is consistent */
-	border-radius: 5px; /* Add border radius for rounded corners */
-	overflow: hidden; /* Ensure content does not overflow */
+	width: 200px;
+	height: 300px;
+	margin: 10px;
+	background-color: #353849;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 .features2 .image {
 	width: 100%;
-	height: 200px; /* Set a fixed height for the image container */
-	overflow: hidden; /* Ensure the image does not overflow the container */
+	height: 200px;
+	overflow: hidden;
 }
 
 .features2 .image img {
 	width: 100%;
 	height: 100%;
-	object-fit: cover; /* Ensure the image covers the area without distortion */
+	object-fit: cover;
 }
 
 .features2 .card-body {
