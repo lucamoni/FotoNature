@@ -4578,3 +4578,57 @@ input, select, textarea {
 	overflow: hidden; /* Ensure text does not overflow */
 	text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
+
+.image.dynamic3 img {
+	width: 350px; /* Larghezza fissa */
+	height: 400px; /* Altezza fissa */
+	object-fit: cover; /* Assicura che l'immagine copra l'intera area */
+	border-radius: 5px; /* Aggiunge angoli arrotondati */
+	border: 1px solid #ccc;/* Aggiunge un bordo sottile */
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#banner .inner {
+	animation: slideIn 1s ease-out;
+}
+
+#banner h2,
+#banner p,
+#banner #filter-buttons,
+#banner #category-select,
+#banner #reset-button,
+#banner #search-button
+{
+	animation: slideIn 1s ease-out;
+}
+.side-by-side {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px; /* Adjust the gap between images as needed */
+	align-content: right;
+}
+
+.side-by-side a {
+	flex: 1;
+	text-align: center;
+}
+
+.side-by-side img {
+	max-width: 100%;
+	height: auto;
+}
+
+.resized-image {
+	width: 50%;
+	height: auto;
+}
